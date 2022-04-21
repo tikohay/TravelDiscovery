@@ -12,6 +12,11 @@ struct Category: Identifiable {
     let name, imageName: String
 }
 
+struct Destination: Identifiable {
+    var id = UUID()
+    let name, country, imageName: String
+}
+
 struct ContentView: View {
     var body: some View {
         NavigationView {
@@ -67,6 +72,13 @@ struct DiscoverCategoriesView: View {
 }
 
 struct PopularDestinationView: View {
+    
+    var destinations: [Destination] = [
+        .init(name: "Paris", country: "France", imageName: "paris"),
+        .init(name: "Tokyo", country: "Japan", imageName: "japan"),
+        .init(name: "New York", country: "USA", imageName: "newyork")
+    ]
+    
     var body: some View {
         VStack {
             HStack {
@@ -79,10 +91,28 @@ struct PopularDestinationView: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 8.0) {
-                    ForEach(0..<5, id: \.self) { num in
-                        Spacer()
-                            .frame(width: 125, height: 150)
-                            .background(.gray)
+                    ForEach(destinations, id: \.id) { destination in
+                        VStack(alignment: .leading, spacing: 0) {
+                            
+                            Image(destination.imageName)
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 125, height: 125)
+                                
+                                .cornerRadius(4)
+                                .padding(.horizontal, 6)
+                                .padding(.vertical, 6)
+                            
+                            Text(destination.name)
+                                .font(.system(size: 12, weight: .semibold))
+                                .padding(.horizontal, 12)
+                            Text(destination.country)
+                                .font(.system(size: 12, weight: .semibold))
+                                .padding(.horizontal, 12)
+                                .padding(.bottom, 8)
+                                .foregroundColor(.gray)
+                        }
+                        .background(Color(white: 0.9, opacity: 0.7))
                             .cornerRadius(5)
                             .shadow(color: .gray, radius: 4, x: 0, y: 2)
                             .padding(.bottom)
