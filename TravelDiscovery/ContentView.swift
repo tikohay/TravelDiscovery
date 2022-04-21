@@ -12,6 +12,8 @@ struct ContentView: View {
         NavigationView {
             ScrollView {
                 DiscoverCategoriesView()
+                PopularDestinationView()
+                PopularRestaurantsView()
             } .navigationTitle("Discover")
         }
     }
@@ -43,3 +45,87 @@ struct DiscoverCategoriesView: View {
         }
     }
 }
+
+struct PopularDestinationView: View {
+    var body: some View {
+        VStack {
+            HStack {
+                Text("Pupular destinations")
+                    .font(.system(size: 14, weight: .semibold))
+                Spacer()
+                Text("See all")
+                    .font(.system(size: 12, weight: .semibold))
+            } .padding([.horizontal, .top])
+            
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 8.0) {
+                    ForEach(0..<5, id: \.self) { num in
+                        Spacer()
+                            .frame(width: 125, height: 150)
+                            .background(.gray)
+                            .cornerRadius(5)
+                            .shadow(color: .gray, radius: 4, x: 0, y: 2)
+                            .padding(.bottom)
+                    }
+                } .padding(.horizontal)
+            }
+        }
+    }
+}
+
+struct PopularRestaurantsView: View {
+    var body: some View {
+        VStack {
+            HStack {
+                Text("Pupular places to eat")
+                    .font(.system(size: 14, weight: .semibold))
+                Spacer()
+                Text("See all")
+                    .font(.system(size: 12, weight: .semibold))
+            } .padding([.horizontal, .top])
+            
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 8.0) {
+                    ForEach(0..<5, id: \.self) { num in
+                        Spacer()
+                            .frame(width: 200, height: 64)
+                            .background(.gray)
+                            .cornerRadius(5)
+                            .shadow(color: .gray, radius: 4, x: 0, y: 2)
+                            .padding(.bottom)
+                    }
+                } .padding(.horizontal)
+            }
+        }
+    }
+}
+
+struct TrendingCreatorsView: View {
+    var body: some View {
+        VStack {
+            HStack {
+                Text("Pupular places to eat")
+                    .font(.system(size: 14, weight: .semibold))
+                Spacer()
+                Text("See all")
+                    .font(.system(size: 12, weight: .semibold))
+            } .padding([.horizontal, .top])
+            
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 8.0) {
+                    ForEach(0..<5, id: \.self) { num in
+                        Spacer()
+                            .frame(width: 200, height: 64)
+                            .background(.gray)
+                            .cornerRadius(5)
+                            .shadow(color: .gray, radius: 4, x: 0, y: 2)
+                            .padding(.bottom)
+                    }
+                } .padding(.horizontal)
+            }
+        }
+    }
+}
+
+
+
