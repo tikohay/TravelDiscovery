@@ -17,6 +17,11 @@ struct Destination: Identifiable {
     let name, country, imageName: String
 }
 
+struct Restaurant: Identifiable {
+    var id = UUID()
+    let name, imageName: String
+}
+
 struct ContentView: View {
     var body: some View {
         NavigationView {
@@ -124,6 +129,12 @@ struct PopularDestinationView: View {
 }
 
 struct PopularRestaurantsView: View {
+    
+    var restaurants: [Restaurant] = [
+        .init(name: "Japan's Finest Tapas", imageName: "sushi"),
+        .init(name: "Bar & Grill", imageName: "restaurant")
+    ]
+    
     var body: some View {
         VStack {
             HStack {
@@ -136,10 +147,42 @@ struct PopularRestaurantsView: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 8.0) {
-                    ForEach(0..<5, id: \.self) { num in
-                        Spacer()
-                            .frame(width: 200, height: 64)
-                            .background(.gray)
+                    ForEach(restaurants, id: \.id) { restaurant in
+                        HStack(spacing: 8) {
+                            Image(restaurant.imageName)
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 60, height: 60)
+                                .cornerRadius(5)
+                                .clipped()
+                                .padding(.leading, 6)
+                                .padding(.vertical, 6)
+                            
+                            VStack(alignment: .leading, spacing: 6) {
+                                HStack {
+                                    Text(restaurant.name)
+                                    Spacer()
+                                    Button {
+                                        print("hello")
+                                    } label: {
+                                        Image(systemName: "ellipsis")
+                                            .foregroundColor(.gray)
+                                    }
+                                }
+                                
+                                HStack {
+                                    Image(systemName: "star.fill")
+                                    Text("4.7 Sushi $$")
+                                }
+                                
+                                Text("Tokyo, Japan")
+                            }
+                                .font(.system(size: 12, weight: .semibold))
+                            
+                            Spacer()
+                        }
+                            .frame(width: 240)
+                            .background(Color(white: 0.9, opacity: 0.7))
                             .cornerRadius(5)
                             .shadow(color: .gray, radius: 4, x: 0, y: 2)
                             .padding(.bottom)
@@ -162,12 +205,17 @@ struct TrendingCreatorsView: View {
             } .padding([.horizontal, .top])
             
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 8.0) {
+                HStack(spacing: 12.0) {
                     ForEach(0..<5, id: \.self) { num in
-                        Spacer()
-                            .frame(width: 50, height: 50)
-                            .background(.yellow)
-                            .cornerRadius(.infinity)
+                        VStack {
+                            Image("dwayne")
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 60, height: 60)
+                                .cornerRadius(.infinity)
+                            Text("Dwayne")
+                                .font(.system(size: 12, weight: .semibold))
+                        }
                             .shadow(color: .gray, radius: 5, x: 0, y: 2)
                             .padding(.bottom)
                     }
