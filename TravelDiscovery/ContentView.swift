@@ -22,6 +22,11 @@ struct Restaurant: Identifiable {
     let name, imageName: String
 }
 
+struct User: Identifiable {
+    var id = UUID()
+    let name, imageName: String
+}
+
 struct ContentView: View {
     var body: some View {
         NavigationView {
@@ -194,6 +199,13 @@ struct PopularRestaurantsView: View {
 }
 
 struct TrendingCreatorsView: View {
+    
+    var users: [User] = [
+        .init(name: "Dwayne Johnson", imageName: "dwayne"),
+        .init(name: "Jennifer Lawrens", imageName: "jennifer"),
+        .init(name: "Jason Statham", imageName: "jason")
+    ]
+    
     var body: some View {
         VStack {
             HStack {
@@ -205,17 +217,19 @@ struct TrendingCreatorsView: View {
             } .padding([.horizontal, .top])
             
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 12.0) {
-                    ForEach(0..<5, id: \.self) { num in
+                HStack(alignment: .top, spacing: 12.0) {
+                    ForEach(users, id: \.id) { user in
                         VStack {
-                            Image("dwayne")
+                            Image(user.imageName)
                                 .resizable()
                                 .scaledToFill()
                                 .frame(width: 60, height: 60)
                                 .cornerRadius(.infinity)
-                            Text("Dwayne")
-                                .font(.system(size: 12, weight: .semibold))
+                            Text(user.name)
+                                .font(.system(size: 11, weight: .semibold))
+                                .multilineTextAlignment(.center)
                         }
+                            .frame(width: 60)
                             .shadow(color: .gray, radius: 5, x: 0, y: 2)
                             .padding(.bottom)
                     }
