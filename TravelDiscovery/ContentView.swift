@@ -28,14 +28,46 @@ struct User: Identifiable {
 }
 
 struct ContentView: View {
+    
+    init() {
+        UINavigationBar.appearance().largeTitleTextAttributes = [
+            .foregroundColor: UIColor.white
+        ]
+    }
+    
     var body: some View {
         NavigationView {
-            ScrollView {
-                DiscoverCategoriesView()
-                PopularDestinationView()
-                PopularRestaurantsView()
-                TrendingCreatorsView()
-            } .navigationTitle("Discover")
+            ZStack {
+                LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 1, green: 0.7113083005, blue: 0, alpha: 1)), Color(#colorLiteral(red: 1, green: 0.3716355562, blue: 0, alpha: 1))]), startPoint: .top, endPoint: .bottom)
+                    .ignoresSafeArea()
+                Color(.init(white: 0.95, alpha: 1))
+                    .offset(y: 400)
+                ScrollView {
+                    
+                    HStack {
+                        Image(systemName: "magnifyingglass")
+                        Text("Where do you want to go?")
+                        Spacer()
+                    }
+                    .font(.system(size: 14, weight: .semibold))
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(Color(.init(white: 1, alpha: 0.3)))
+                    .cornerRadius(10)
+                    .padding(16)
+                    
+                    DiscoverCategoriesView()
+                    
+                    VStack {
+                        PopularDestinationView()
+                        PopularRestaurantsView()
+                        TrendingCreatorsView()
+                    } .background(Color(.init(white: 0.95, alpha: 1)))
+                        .cornerRadius(16)
+                        .padding(.top, 32)
+                }
+            }
+            .navigationTitle("Discover")
         }
     }
 }
@@ -53,8 +85,8 @@ struct DiscoverCategoriesView: View {
         .init(name: "Art", imageName: "paintpalette.fill"),
         .init(name: "Sport", imageName: "sportscourt.fill"),
         .init(name: "Live Events", imageName: "music.mic"),
-        .init(name: "Food", imageName: "music.mic"),
-        .init(name: "History", imageName: "music.mic")
+        .init(name: "Food", imageName: "cart.fill"),
+        .init(name: "History", imageName: "books.vertical.fill")
     ]
     
     var body: some View {
@@ -64,14 +96,14 @@ struct DiscoverCategoriesView: View {
                     VStack(spacing: 8) {
                         Image(systemName: category.imageName)
                             .font(.system(size: 20))
-                            .foregroundColor(.white)
+                            .foregroundColor(Color(#colorLiteral(red: 1, green: 0.5709188581, blue: 0, alpha: 1)))
                             .frame(width: 64, height: 64)
-                            .background(.gray)
+                            .background(.white)
                             .cornerRadius(.infinity)
-                            .shadow(color: .gray, radius: 5, x: 0, y: 2)
                         Text(category.name)
                             .font(.system(size: 12, weight: .semibold))
                             .multilineTextAlignment(.center)
+                            .foregroundColor(.white)
                     }
                     .frame(width: 68)
                 }
@@ -108,7 +140,7 @@ struct PopularDestinationView: View {
                                 .resizable()
                                 .scaledToFill()
                                 .frame(width: 125, height: 125)
-                                
+                            
                                 .cornerRadius(4)
                                 .padding(.horizontal, 6)
                                 .padding(.vertical, 6)
@@ -122,10 +154,10 @@ struct PopularDestinationView: View {
                                 .padding(.bottom, 8)
                                 .foregroundColor(.gray)
                         }
-                        .background(Color(white: 0.9, opacity: 0.7))
-                            .cornerRadius(5)
-                            .shadow(color: .gray, radius: 4, x: 0, y: 2)
-                            .padding(.bottom)
+                        .background(.white)
+                        .cornerRadius(5)
+                        .shadow(color: Color(UIColor.lightGray), radius: 2, x: 0, y: 1)
+                        .padding(.bottom)
                     }
                 } .padding(.horizontal)
             }
@@ -182,15 +214,15 @@ struct PopularRestaurantsView: View {
                                 
                                 Text("Tokyo, Japan")
                             }
-                                .font(.system(size: 12, weight: .semibold))
+                            .font(.system(size: 12, weight: .semibold))
                             
                             Spacer()
                         }
-                            .frame(width: 240)
-                            .background(Color(white: 0.9, opacity: 0.7))
-                            .cornerRadius(5)
-                            .shadow(color: .gray, radius: 4, x: 0, y: 2)
-                            .padding(.bottom)
+                        .frame(width: 240)
+                        .background(.white)
+                        .cornerRadius(5)
+                        .shadow(color: Color(UIColor.lightGray), radius: 2, x: 0, y: 1)
+                        .padding(.bottom)
                     }
                 } .padding(.horizontal)
             }
@@ -229,9 +261,9 @@ struct TrendingCreatorsView: View {
                                 .font(.system(size: 11, weight: .semibold))
                                 .multilineTextAlignment(.center)
                         }
-                            .frame(width: 60)
-                            .shadow(color: .gray, radius: 5, x: 0, y: 2)
-                            .padding(.bottom)
+                        .frame(width: 60)
+                        .shadow(color: .gray, radius: 5, x: 0, y: 2)
+                        .padding(.bottom)
                     }
                 } .padding([.horizontal, .top])
             }
