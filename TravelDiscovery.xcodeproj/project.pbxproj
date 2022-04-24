@@ -14,6 +14,7 @@
 		E82D8ABE281063C50072784E /* TravelDiscoveryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82D8ABD281063C50072784E /* TravelDiscoveryTests.swift */; };
 		E82D8AC8281063C50072784E /* TravelDiscoveryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82D8AC7281063C50072784E /* TravelDiscoveryUITests.swift */; };
 		E82D8ACA281063C50072784E /* TravelDiscoveryUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82D8AC9281063C50072784E /* TravelDiscoveryUITestsLaunchTests.swift */; };
+		E849D76128159C9200A161EB /* CategoryDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E849D76028159C9200A161EB /* CategoryDetailsView.swift */; };
 		E8D214DE2812F06C009025A9 /* PopularDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D214DD2812F06C009025A9 /* PopularDestinationView.swift */; };
 		E8D214E02812F1BB009025A9 /* PopularRestaurantsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D214DF2812F1BB009025A9 /* PopularRestaurantsView.swift */; };
 		E8D214E22812F24F009025A9 /* DiscoverCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D214E12812F24F009025A9 /* DiscoverCategoriesView.swift */; };
@@ -54,6 +55,7 @@
 		E82D8AC3281063C50072784E /* TravelDiscoveryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TravelDiscoveryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E82D8AC7281063C50072784E /* TravelDiscoveryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelDiscoveryUITests.swift; sourceTree = "<group>"; };
 		E82D8AC9281063C50072784E /* TravelDiscoveryUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelDiscoveryUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E849D76028159C9200A161EB /* CategoryDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailsView.swift; sourceTree = "<group>"; };
 		E8D214DD2812F06C009025A9 /* PopularDestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularDestinationView.swift; sourceTree = "<group>"; };
 		E8D214DF2812F1BB009025A9 /* PopularRestaurantsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularRestaurantsView.swift; sourceTree = "<group>"; };
 		E8D214E12812F24F009025A9 /* DiscoverCategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverCategoriesView.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				E8D214DF2812F1BB009025A9 /* PopularRestaurantsView.swift */,
 				E8D214E12812F24F009025A9 /* DiscoverCategoriesView.swift */,
 				E8D214E32812F27B009025A9 /* TrendingCreatorsVIew.swift */,
+				E849D76028159C9200A161EB /* CategoryDetailsView.swift */,
 			);
 			path = Discover;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				E8D214E42812F27B009025A9 /* TrendingCreatorsVIew.swift in Sources */,
 				E8D214DE2812F06C009025A9 /* PopularDestinationView.swift in Sources */,
 				E8D214F22812F924009025A9 /* Color+Extension.swift in Sources */,
+				E849D76128159C9200A161EB /* CategoryDetailsView.swift in Sources */,
 				E8D214E92812F3B0009025A9 /* Destination.swift in Sources */,
 				E8D214E72812F399009025A9 /* Category.swift in Sources */,
 				E8D214ED2812F3D4009025A9 /* User.swift in Sources */,

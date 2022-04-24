@@ -21,19 +21,23 @@ struct DiscoverCategoriesView: View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(alignment: .top, spacing: 14) {
                 ForEach(categories, id: \.id) { category in
-                    VStack(spacing: 8) {
-                        Image(systemName: category.imageName)
-                            .font(.system(size: 20))
-                            .foregroundColor(Color(#colorLiteral(red: 1, green: 0.5709188581, blue: 0, alpha: 1)))
-                            .frame(width: 64, height: 64)
-                            .background(.white)
-                            .cornerRadius(.infinity)
-                        Text(category.name)
-                            .font(.system(size: 12, weight: .semibold))
-                            .multilineTextAlignment(.center)
-                            .foregroundColor(.white)
+                    NavigationLink {
+                        CategoryDetailsView(title: category.name)
+                    } label: {
+                        VStack(spacing: 8) {
+                            Image(systemName: category.imageName)
+                                .font(.system(size: 20))
+                                .foregroundColor(Color(#colorLiteral(red: 1, green: 0.5709188581, blue: 0, alpha: 1)))
+                                .frame(width: 64, height: 64)
+                                .background(.white)
+                                .cornerRadius(.infinity)
+                            Text(category.name)
+                                .font(.system(size: 12, weight: .semibold))
+                                .multilineTextAlignment(.center)
+                                .foregroundColor(.white)
+                        }
+                        .frame(width: 68)
                     }
-                    .frame(width: 68)
                 }
             }   .padding(.horizontal)
                 .padding(.top, 5)

@@ -34,12 +34,12 @@ struct TrendingCreatorsView: View {
                                 .scaledToFill()
                                 .frame(width: 60, height: 60)
                                 .cornerRadius(.infinity)
+                                .shadow(color: .gray, radius: 5, x: 0, y: 2)
                             Text(user.name)
                                 .font(.system(size: 11, weight: .semibold))
                                 .multilineTextAlignment(.center)
                         }
                         .frame(width: 60)
-                        .shadow(color: .gray, radius: 5, x: 0, y: 2)
                         .padding(.bottom)
                     }
                 } .padding([.horizontal, .top])
