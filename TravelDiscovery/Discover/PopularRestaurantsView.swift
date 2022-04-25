@@ -10,8 +10,8 @@ import SwiftUI
 struct PopularRestaurantsView: View {
     
     var restaurants: [Restaurant] = [
-        .init(name: "Japan's Finest Tapas", imageName: "sushi"),
-        .init(name: "Bar & Grill", imageName: "restaurant")
+        .init(name: "Japan's Finest Tapas", description: "4.7 Sushi $$", city: "Tokyo, Japan", imageName: "sushi"),
+        .init(name: "Bar & Grill", description: "4.7 Burgers $$", city: "New York, USA", imageName: "restaurant")
     ]
     
     var body: some View {
@@ -51,10 +51,10 @@ struct PopularRestaurantsView: View {
                                 
                                 HStack {
                                     Image(systemName: "star.fill")
-                                    Text("4.7 Sushi $$")
+                                    Text(restaurant.description)
                                 }
                                 
-                                Text("Tokyo, Japan")
+                                Text(restaurant.city)
                             }
                             .font(.system(size: 12, weight: .semibold))
                             

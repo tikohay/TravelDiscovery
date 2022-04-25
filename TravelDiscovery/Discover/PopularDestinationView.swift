@@ -11,14 +11,15 @@ struct PopularDestinationView: View {
     
     var destinations: [Destination] = [
         .init(name: "Paris", country: "France", imageName: "paris"),
-        .init(name: "Tokyo", country: "Japan", imageName: "japan"),
-        .init(name: "New York", country: "USA", imageName: "newyork")
+        .init(name: "Kiev", country: "Ukraine", imageName: "ukraine"),
+        .init(name: "New York", country: "USA", imageName: "newyork"),
+            .init(name: "Tokyo", country: "Japan", imageName: "japan")
     ]
     
     var body: some View {
         VStack {
             HStack {
-                Text("Pupular destinations")
+                Text("My favourite cities")
                     .font(.system(size: 14, weight: .semibold))
                 Spacer()
                 Text("See all")

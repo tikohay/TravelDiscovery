@@ -9,5 +9,5 @@ import Foundation
 
 struct Restaurant: Identifiable {
     var id = UUID()
-    let name, imageName: String
+    let name, description, city, imageName: String
 }
