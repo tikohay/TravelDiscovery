@@ -7,16 +7,32 @@
 
 import SwiftUI
 
+struct Place: Decodable, Identifiable {
+    let id = UUID()
+    let name, thumbnail: String
+}
+
 class CategoryDetailsViewModel: ObservableObject {
     
     @Published var isLoading = true
-    @Published var places: [Int] = []
+    @Published var places: [Place] = []
     
     init() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+        
+        guard let url = URL(string: "https://travel.letsbuildthatapp.com/travel_discovery/category?name=art") else { return }
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            
+            if let data = data {
+                do {
+                    self.places = try JSONDecoder().decode([Place].self, from: data)
+                } catch {
+                    print(error)
+                }
+            }
+            
             self.isLoading = false
-            self.places = Array(0..<10)
-        }
+            
+        }.resume()
     }
 }
 
@@ -50,12 +66,13 @@ struct CategoryDetailsView: View {
                     .position(x: geometry.frame(in: .global).midX, y: geometry.frame(in: .global).midY)
                 } else {
                     ScrollView {
-                        ForEach(vm.places, id: \.self) { num in
+                        ForEach(vm.places, id: \.id) { place in
                             VStack(alignment: .leading, spacing: 0) {
+//                                let image = UIImage(data: place.thumbnail)
                                 Image("artItaly")
                                     .resizable()
                                     .frame(height: 300)
-                                Text(String("hello"))
+                                Text(place.name)
                                     .font(.system(size: 12, weight: .semibold))
                                     .padding()
                                 
