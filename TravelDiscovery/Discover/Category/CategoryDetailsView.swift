@@ -7,11 +7,6 @@
 
 import SwiftUI
 
-struct Place: Decodable, Identifiable {
-    let id = UUID()
-    let name, thumbnail: String
-}
-
 class CategoryDetailsViewModel: ObservableObject {
     
     @Published var isLoading = true
@@ -36,21 +31,6 @@ class CategoryDetailsViewModel: ObservableObject {
     }
 }
 
-struct ActivityIndicatorView: UIViewRepresentable {
-    
-    @State var isAnimating: Bool = true
-    
-    func makeUIView(context: Context) -> UIActivityIndicatorView {
-        let aiv = UIActivityIndicatorView(style: .large)
-        aiv.startAnimating()
-        return aiv
-    }
-    
-    func updateUIView(_ uiView: UIActivityIndicatorView, context: Context) {
-        
-    }
-}
-
 struct CategoryDetailsView: View {
     
     @ObservedObject var vm = CategoryDetailsViewModel()
@@ -68,7 +48,6 @@ struct CategoryDetailsView: View {
                     ScrollView {
                         ForEach(vm.places, id: \.id) { place in
                             VStack(alignment: .leading, spacing: 0) {
-//                                let image = UIImage(data: place.thumbnail)
                                 Image("artItaly")
                                     .resizable()
                                     .frame(height: 300)
